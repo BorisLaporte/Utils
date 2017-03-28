@@ -1,6 +1,6 @@
 // PRELOADER
-export default class Prelaod {
-	constructor(img, onSuccess, onFailure = null, percentage = null, limitTime = 6000, webpackResolve = null){
+class Prelaod {
+  constructor(img, onSuccess, onFailure = null, percentage = null, limitTime = 6000, webpackResolve = null){
     this.onSuccess = onSuccess
     this.onFailure = onFailure
     this.percentage = percentage
@@ -20,7 +20,7 @@ export default class Prelaod {
         images[i].onload = this.updateStatus.bind(this, images[i])
         let src
         if ( this.webpackResolve != null ){
-          src = require(this.webpackResolve+imgArray[i])
+          src = this.webpackResolve(imgArray[i])
         } else {
           src = imgArray[i]
         }
@@ -54,3 +54,5 @@ export default class Prelaod {
     }
   }
 }
+
+export default Prelaod

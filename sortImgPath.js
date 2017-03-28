@@ -15,8 +15,7 @@ const sortImgPath = (
   ) => {
   /* Is crawlalbe ? */
   if ( crawlable.test(typeof data) ){
-    for ( _el in data ){
-
+    for ( _el = 0 in data ){
       /* Is crawlalbe ? */
       if ( crawlable.test(typeof data[_el]) ){
         /* Parse deeper */
